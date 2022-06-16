@@ -738,8 +738,8 @@ img{
     }
     .gleaner-logo>img{
         position: absolute;
-        width: 250px;
-        height: 45px;
+        width: 240px;
+        height: 40px;
         top: 50px;
         left: 130px;
     }
@@ -852,25 +852,138 @@ img{
     .main-business-story{
         display: flex;
         flex-direction: column;
+        margin-bottom: 12px;
     }
     .main-business-story>h2{
         font-size: 1.1rem;
-        margin-top: 12px;
+        margin-top: 8px;
+        line-height: 16px;
     }
-    .stock-market,
-    .lower-row{
+    .main-business-story>p,
+    .stock-market{
         display: none;
-
+    }
+    .lower-row{
+        display: grid;
+        grid-template-columns: repeat(3,1fr);
+        column-gap: 12px;
+    }
+    .business-article>img{
+        object-fit: cover;
+        height: 80px;
+        margin-bottom: 8px;
+    }
+    .business-article>h3{
+        font-size: 14px;
+        line-height: 14px;
     }
 
 
 
 
 
+    /* FLAIR */
+    .flair-article-left,
+    .flair-article-right{
+        display: none;
+    }
+    .flair-article>h2{
+        font-size: 1.1rem;
+        line-height: 16px;
+        margin-bottom: 12px;
+    }
 
 
 
 
+    /* WEATHER */
+    .location>h4{
+        font-size: 14px;
+    }
 
+    .location>p{
+        font-size: 11px;
+        line-height: 10px;
+        margin-top: 4px;
+    }
+
+
+
+    /* FUN AND GAMES */
+    .fng{
+        display: flex;
+        flex-direction: column;
+        align-items: center
+    }
+    .cartoon{
+        width: 100%;
+        margin-bottom: 12px;
+    }
+    .cartoon>h2{
+        font-size: 14px;
+    }
+    .cartoon>img{
+        max-height: 280px;
+        width: 100%;
+        padding: 0;
+    }
+    .fng-links{
+        display: grid;
+        grid-template-columns: repeat(3,1fr);
+        column-gap: 40px;
+        width: 100%;
+    }
+    .fng-links img{
+        max-height: 80px;
+        height: inherit;
+    }
+
+
+
+
+    /* OPINIONS */
+    .opinion-section{
+        height: 160px;
+    }
+    .poll,
+    .opinion-item>p{
+        display: none;
+    }
+    .opinions{
+        display: flex;
+        justify-content: space-evenly;
+        width: 100%;
+    }
+    .opinion-item>h3{
+        font-size: 14px;
+    }
+    .opinion-item>h4{
+        font-size: 10px;
+        line-height: 12px;
+    }
+
+
+
+    /* FOOTER */
+    footer{
+        height: 40px;
+    }
+    .footer-item>h2{
+        font-size: 12px;
+        line-height: 10px;
+    }
+    .footer-item>a,
+    .mobile-apps p,
+    .social p,
+    .footer-logo>p>span{
+        display: none;
+    }
+    .icons>a>i{
+        font-size: 14px;
+        margin: 4px
+    }
+    .footer-logo>p{
+        display: block;
+    }
 
 }
