@@ -62,11 +62,14 @@ img{
 .section-container-lg{
     height: 520px;
 }
-.section-container-lg>a{
+.section-container-lg>a,
+.section-container-sm>a{
     display: block;
     text-align: right;
     font-weight: 500;
     margin-top: 20px;
+    text-decoration: underline;
+    font-style: italic;
 }
 .section-container-sm{
     height: 360px;
@@ -87,7 +90,11 @@ img{
     grid-template-columns: repeat(4,1fr);
     column-gap: 56px;
 }
-
+.five-col-grid{
+    display: grid;
+    grid-template-columns: repeat(5,1fr);
+    column-gap: auto;
+}
 .flex-col{
     display: flex;
     flex-direction: column;
@@ -532,7 +539,7 @@ img{
 
 /* FUN AND GAMES */
 .cartoon{
-    width: 70%;
+    width: 60%;
     cursor: pointer;
 }
 .cartoon>h2{
@@ -563,7 +570,10 @@ img{
     color:#0270bb;
     text-decoration: underline;
 }
-
+.cartoon:hover.cartoon>img,
+.fng-links>a:hover img{
+    filter:contrast(0.5);
+}
 
 
 
@@ -573,7 +583,14 @@ img{
 /* OPINIONS */
 .opinions{
     column-gap: 12px;
-    margin-right: 16px;
+}
+.opinions h4{
+    line-height: 15px;
+    margin-bottom: 8px;
+}
+.opinion-item>p{
+    font-size: 14px;
+    line-height: 14px;
 }
 .poll>h3,
 .opinion-item>h3,
@@ -583,8 +600,13 @@ img{
 .radio{
     margin-bottom: 4px;
 }
+.poll{
+    border-left: 1px solid #313131;
+    padding: 8px 0 8px 20px;
+}
 .poll button{
     background-color: #ffffff;
+    margin-top: 12px;
     padding: 2px 8px;
     color:#0270bb;
     border: 1px solid #0270bb;
@@ -592,7 +614,7 @@ img{
     cursor: pointer;
 }
 .poll button:hover{
-    box-shadow: 0 0 4px #0270bb;
+    box-shadow: 0 0 4px #0270bbc1;
 }
 .poll a{
     color:#0270bb;
@@ -681,4 +703,174 @@ img{
 .footer-logo p{
     text-align: center;
     margin: 12px 0;
+}
+
+
+
+
+
+/* SCREEN WIDTH 500PX */
+
+@media (max-width: 500px) {
+
+    /* NAV */
+    .search{
+        flex-direction: column;
+    }
+    .search form{
+        display: none;
+    }
+    .subscribe{
+        display: none;
+    }
+    .nav-body{
+        display: flex;
+    }
+    .nav-body>i{
+        display: block;
+        color:#0270bb;
+    }
+    .gleaner-logo{
+        display: block;
+        width: 300px;
+        border: 1px solid red;
+        text-align: left;
+    }
+    .gleaner-logo>img{
+        position: absolute;
+        width: 250px;
+        height: 45px;
+        top: 50px;
+        left: 130px;
+    }
+    .btns{
+        display: none;
+    }
+    .alerts>p{
+        width: 170%;
+    }
+
+
+
+
+
+    /*  */
+    .section-heading{
+        text-align: left;
+        font-size: 1.2rem;
+    }
+    .container{
+        box-shadow: 0 0 0;
+        width: 100%;
+    }
+    .section-container-sm{
+        height: 320px;
+    }
+
+
+
+
+
+
+    /* MAIN STORIES */
+    .latest-stories{
+        display: grid;
+        grid-template-columns: repeat(2,1fr);
+    }
+    .latest-stories>img{
+        object-fit: cover;
+        min-width: 260px;
+        margin: 0;
+        padding: 0 12px 0 0;
+    }
+    .latest-stories>h2{
+        font-size: 1.2rem;
+    }
+    .featured-stories,
+    .latest-stories>p,
+    .latest-stories>a{
+        display: none;
+    }
+
+
+
+    /* TRENDING */
+    .trending-stories{
+        display: grid;
+        grid-template-columns: repeat(2,1fr);
+        column-gap: 96px;
+        row-gap: 32px;
+    }
+    .trending-item>h3{
+        font-size: 1rem;
+        line-height: 16px;
+    }
+    .section-container{
+    height: 500px;
+    }
+
+    /* NEWS */
+    .minor{
+        display: none;
+    }
+    .news-item img{
+        min-width: 360px;
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+    }
+
+
+
+
+
+
+    /* SPORTS */
+    .sport-primary>p{
+        display: none;
+    }
+    .sport-primary>img{
+        height: 320px;
+        padding-bottom: 12px;
+    }
+    .sport-primary>h2{
+        font-size: 1.2rem;
+    }
+    .article{
+        display: flex;
+        flex-direction:column-reverse;
+    }
+    .article>img{
+        height: 100px;
+        padding-bottom: 8px;
+    }
+
+
+
+
+    /* BUSINESS */
+    .main-business-story{
+        display: flex;
+        flex-direction: column;
+    }
+    .main-business-story>h2{
+        font-size: 1.1rem;
+        margin-top: 12px;
+    }
+    .stock-market,
+    .lower-row{
+        display: none;
+
+    }
+
+
+
+
+
+
+
+
+
+
+
 }
