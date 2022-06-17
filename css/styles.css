@@ -22,6 +22,7 @@
 body{
     font-size: 14px;
     overflow-x: hidden;
+    background-color:#9494941c;
 }
 a{
     text-decoration: none;
@@ -38,6 +39,10 @@ nav{
     background-color: #ffffff;
     color: #0270bb;
     border-bottom: 6px double #0270bb;
+    overflow: hidden;
+    position: sticky;
+    top: -50px;
+    z-index: 1;
 }
 button{
     background-color: #ffffff;
@@ -57,6 +62,7 @@ img{
 /* REUSABLE */
 .set-width{
     width: 85%;
+    max-width: 1080px;
     margin: 0 auto;
 }
 .section-container-lg{
@@ -118,7 +124,7 @@ img{
     justify-content: space-between;
     align-items: center;
     height: 45px;
-    margin: 4px auto;
+    margin: 8px auto;
 }
 .time{
     font-weight: 600;
@@ -181,6 +187,7 @@ img{
 .search form a i{
     font-size: 0.9rem;
     margin: 0 4px;
+    color:#0270bb;
 }
 .gleaner-logo{
     display: flex;
@@ -219,21 +226,20 @@ img{
     box-shadow: 0 0 0 #0270bb;
 }
 .alerts{
-    position: absolute;
     display: grid;
     left: 0;
     width: 180%;
     margin:8px auto;
     padding: 4px;
-    overflow: hidden;
 }
 
 .alerts p{
-    width: 100%;
+    width: 120%;
     text-align: right;
     color: #987a22;
-    animation: scroll-left infinite 40s linear;
-    font-weight: 700;
+    animation: scroll-left infinite 10s linear;
+    font-weight: 600;
+    font-size: 18px;
 }
 
 
@@ -261,10 +267,10 @@ img{
 /* CONTAINER */
 .container{
     position: relative;
-    margin: 40px auto;
+    margin: 0 auto;
     padding: 20px 40px;
     background-color:#ffffff;
-    box-shadow: 0 0 8px #313131bb;
+    /* box-shadow: 0 0 8px #313131bb; */
 }
 
 
@@ -369,6 +375,7 @@ img{
     margin-bottom: 12px;
     color:#313131;
     font-style: italic;
+    font-weight: 500;
 }
 .news-article>img{
     width: 360px;
@@ -404,6 +411,8 @@ img{
 }
 .sport-primary>h2{
     margin-bottom: 20px;
+    font-weight: 500;
+    font-style: italic;
 }
 .sport-secondary{
     width: 25%;
@@ -413,7 +422,10 @@ img{
 }
 .article>h4{
     text-align: left;
+    line-height: 14px;
     margin-bottom: 8px;
+    font-weight: 500;
+    font-style: italic;
 }
 .article>img{
     height: 130px;
@@ -588,6 +600,22 @@ img{
     line-height: 15px;
     margin-bottom: 8px;
 }
+.opinion-item{
+    cursor: pointer;
+    box-shadow:1px 1px 2px #3131319a;
+    padding: 2px 6px;
+}
+.opinion-item h3,
+.poll h3{
+    text-align: center;
+}
+.opinion-item:hover{
+    box-shadow:1px 1px 2px #0270bb9a;
+}
+.opinion-item:hover.opinion-item>h4{
+    color:#0270bb;
+    text-decoration: underline;
+}
 .opinion-item>p{
     font-size: 14px;
     line-height: 14px;
@@ -601,7 +629,7 @@ img{
     margin-bottom: 4px;
 }
 .poll{
-    border-left: 1px solid #313131;
+    /* border-left: 1px solid #313131; */
     padding: 8px 0 8px 20px;
 }
 .poll button{
@@ -709,46 +737,61 @@ img{
 
 
 
-/* SCREEN WIDTH 500PX */
 
-@media (max-width: 500px) {
+
+
+/* SCREEN WIDTH 0 - 520PX */
+
+@media (max-width: 520px) {
+    h1{
+        font-size: 22px;
+    }
+    h2{
+        font-size: 18px;
+        line-height: 14px;
+        margin:0;
+    }
+    h3{
+        font-size: 16px;
+        line-height: 15px !important;
+        margin: 0;
+    }
+
+
+
 
     /* NAV */
-    .search{
-        flex-direction: column;
+    .time{
+        font-size: 12px;
     }
-    .search form{
+    .search form,
+    .subscribe,
+    .btns,
+    .alerts{
         display: none;
     }
-    .subscribe{
-        display: none;
+    .links a{
+        font-size: 12px;
+        padding: 4px 12px;
     }
     .nav-body{
         display: flex;
     }
     .nav-body>i{
-        display: block;
+        display: inline;
         color:#0270bb;
     }
     .gleaner-logo{
-        display: block;
-        width: 300px;
-        border: 1px solid red;
-        text-align: left;
+        display: inline;
+        margin: 0;
+        justify-content: start;
     }
     .gleaner-logo>img{
-        position: absolute;
-        width: 240px;
-        height: 40px;
-        top: 50px;
-        left: 130px;
+        object-fit: contain;
+        min-width: 200px;
+        width: 70%;
     }
-    .btns{
-        display: none;
-    }
-    .alerts>p{
-        width: 170%;
-    }
+
 
 
 
@@ -757,17 +800,26 @@ img{
     /*  */
     .section-heading{
         text-align: left;
-        font-size: 1.2rem;
+        /* font-size: 1.2rem; */
+        margin-bottom: 16px;
     }
     .container{
-        box-shadow: 0 0 0;
+        box-shadow:none;
         width: 100%;
+        margin: auto;
     }
     .section-container-sm{
         height: 320px;
     }
-
-
+    .trending-container{
+        height: 480px;
+    }
+    .flair-container{
+        height: 450px;
+    }
+    .opinion-container{
+        height: 200px;
+    }
 
 
 
@@ -775,16 +827,16 @@ img{
     /* MAIN STORIES */
     .latest-stories{
         display: grid;
-        grid-template-columns: repeat(2,1fr);
+        grid-template-rows: repeat(2,1fr);
+        width: 90%;
+        margin: auto;
     }
     .latest-stories>img{
         object-fit: cover;
-        min-width: 260px;
+        min-width: 200px;
+        width: 100%;
         margin: 0;
-        padding: 0 12px 0 0;
-    }
-    .latest-stories>h2{
-        font-size: 1.2rem;
+        padding: 0 0 12px 0;
     }
     .featured-stories,
     .latest-stories>p,
@@ -798,26 +850,34 @@ img{
     .trending-stories{
         display: grid;
         grid-template-columns: repeat(2,1fr);
-        column-gap: 96px;
-        row-gap: 32px;
-    }
-    .trending-item>h3{
-        font-size: 1rem;
-        line-height: 16px;
-    }
-    .section-container{
-    height: 500px;
+        column-gap: 40px;
+        row-gap: 20px;
     }
 
+    .trending-item>img{
+        object-fit: cover;
+        height: 100px;
+    }
+
+
+
+
+
+
     /* NEWS */
+    .news{
+        display: block;
+    }
     .minor{
         display: none;
     }
-    .news-item img{
-        min-width: 360px;
-        width: 100%;
-        height: auto;
+    .news-article{
+        margin: 0;
+        width: 90%;
+    }
+    .news-article>img{
         object-fit: cover;
+        margin-top: 12px;
     }
 
 
@@ -942,17 +1002,19 @@ img{
 
 
     /* OPINIONS */
-    .opinion-section{
-        height: 160px;
-    }
+
     .poll,
     .opinion-item>p{
         display: none;
     }
     .opinions{
         display: flex;
-        justify-content: space-evenly;
-        width: 100%;
+        align-items: stretch;
+    }
+    .opinions>*{
+        flex-basis: 24%;
+        flex-grow: 0;
+        flex-shrink: 0;
     }
     .opinion-item>h3{
         font-size: 14px;
@@ -966,11 +1028,722 @@ img{
 
     /* FOOTER */
     footer{
-        height: 40px;
+        height: 32px;
     }
     .footer-item>h2{
         font-size: 12px;
         line-height: 10px;
+        text-align: center;
+    }
+    .footer-item>a,
+    .mobile-apps p,
+    .social p,
+    .footer-logo>p>span{
+        display: none;
+    }
+    .icons>a>i{
+        font-size: 12px;
+        margin: 4px
+    }
+    .footer-logo>p{
+        display: block;
+    }
+
+}
+
+
+
+
+/* SCREEN WIDTH 521PX TO 660PX */
+@media (min-width: 521px) and (max-width:660px) {
+
+    h1{
+        font-size: 22px;
+    }
+    h2{
+        font-size: 18px;
+        line-height: 14px;
+        margin:0;
+    }
+    h3{
+        font-size: 16px;
+        line-height: 15px !important;
+        margin: 0;
+    }
+
+
+
+
+    /* NAV */
+    .time{
+        font-size: 12px;
+    }
+    .search form,
+    .btns,
+    .alerts{
+        display: none;
+    }
+    .links a{
+        font-size: 12px;
+        padding: 4px 12px;
+    }
+    .nav-body{
+        display: flex;
+        justify-content: flex-start;
+    }
+    .nav-body>i{
+        display: inline;
+        color:#0270bb;
+    }
+    .gleaner-logo{
+        display: inline;
+        margin: 0;
+        justify-content: start;
+    }
+    .gleaner-logo>img{
+        object-fit: contain;
+        min-width: 200px;
+        width: 70%;
+    }
+
+
+
+
+
+
+    /*  */
+    .section-heading{
+        text-align: left;
+        /* font-size: 1.2rem; */
+        margin-bottom: 20px;
+    }
+    .container{
+        box-shadow:none;
+        width: 100%;
+        margin: auto;
+    }
+
+    .trending-container{
+        height: 560px;
+    }
+    .flair-container{
+        height: 450px;
+    }
+    .opinion-container{
+        height: 200px;
+    }
+
+
+
+
+    /* MAIN STORIES */
+    .main-stories{
+        margin: 0;
+    }
+    .latest-stories{
+        display: grid;
+        grid-template-rows: repeat(2,1fr);
+        width: 90%;
+        margin: auto;
+    }
+    .latest-stories>img{
+        object-fit: cover;
+        max-height: 280px;
+        max-width: 424px;
+        width: 100%;
+        height: auto;
+        margin: 0;
+        padding: 0 8px 12px 0;
+    }
+    /* .featured-stories, */
+    .latest-stories>p,
+    .latest-stories>a{
+        display: none;
+    }
+    .featured-stories{
+        justify-content: start;
+    }
+    .featured-stories>a{
+        font-size: 10px;
+        line-height: 10px;
+    }
+
+
+
+    /* TRENDING */
+    .trending-stories{
+        display: grid;
+        grid-template-columns: repeat(2,1fr);
+        column-gap: 40px;
+        row-gap: 20px;
+    }
+
+    .trending-item>img{
+        object-fit: cover;
+        max-height: 180px;
+        height: auto;
+    }
+
+
+
+
+
+
+    /* NEWS */
+    .news{
+        display: block;
+    }
+    .major h3{
+        margin: 0;
+    }
+    .minor{
+        display: flex;
+        align-items: stretch;
+        justify-content: space-evenly;
+        margin-top: 24px;
+        width: 100%;
+    }
+    .minor-left,
+    .minor p,
+    .minor hr{
+        display: none;
+    }
+    .minor h3{
+        font-size: 14px;
+        line-height: 14px;
+    }
+
+    .news-article{
+        margin: 0;
+        flex-basis: 200px;
+        flex-grow: 0;
+        flex-shrink: 0;
+    }
+    .news-article>img{
+        object-fit: contain;
+        height: 300px;
+    }
+
+
+
+
+
+
+    /* SPORTS */
+    .sport-primary>p{
+        display: none;
+    }
+    .sport-primary>img{
+        height: 320px;
+        padding-bottom: 12px;
+        float: none;
+    }
+    .sport-primary>h2{
+        font-size: 1.2rem;
+    }
+    .article{
+        display: flex;
+        flex-direction:column-reverse;
+    }
+    .article>img{
+        height: 100px;
+        padding-bottom: 8px;
+    }
+
+
+
+
+    /* BUSINESS */
+    .main-business-story{
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 12px;
+    }
+    .main-business-story>h2{
+        font-size: 1.1rem;
+        margin-top: 8px;
+        line-height: 16px;
+    }
+    .main-business-story>p,
+    .stock-market{
+        display: none;
+    }
+    .lower-row{
+        display: grid;
+        grid-template-columns: repeat(3,1fr);
+        column-gap: 12px;
+    }
+    .business-article>img{
+        object-fit: cover;
+        height: 80px;
+        margin-bottom: 8px;
+        float: none;
+    }
+    .business-article>h3{
+        font-size: 14px;
+        line-height: 14px;
+    }
+
+
+
+
+
+    /* FLAIR */
+    .flair-article-left,
+    .flair-article-right{
+        display: none;
+    }
+    .flair-article>h2{
+        font-size: 1.1rem;
+        line-height: 16px;
+        margin-bottom: 12px;
+    }
+
+
+
+
+    /* WEATHER */
+    .location>h4{
+        font-size: 14px;
+    }
+
+    .location>p{
+        font-size: 11px;
+        line-height: 10px;
+        margin-top: 4px;
+    }
+
+
+
+    /* FUN AND GAMES */
+    .fng{
+        display: flex;
+        flex-direction: column;
+        align-items: center
+    }
+    .cartoon{
+        width: 100%;
+        margin-bottom: 12px;
+    }
+    .cartoon>h2{
+        font-size: 14px;
+    }
+    .cartoon>img{
+        max-height: 280px;
+        width: 100%;
+        padding: 0;
+    }
+    .fng-links{
+        display: grid;
+        grid-template-columns: repeat(3,1fr);
+        column-gap: 40px;
+        width: 100%;
+    }
+    .fng-links img{
+        max-height: 80px;
+        height: inherit;
+    }
+
+
+
+
+    /* OPINIONS */
+
+    .poll,
+    .opinion-item>p{
+        display: none;
+    }
+    .opinions{
+        display: flex;
+        align-items: stretch;
+    }
+    .opinions>*{
+        flex-basis: 24%;
+        flex-grow: 0;
+        flex-shrink: 0;
+    }
+    .opinion-item>h3{
+        font-size: 14px;
+    }
+    .opinion-item>h4{
+        font-size: 10px;
+        line-height: 12px;
+    }
+
+
+
+    /* FOOTER */
+    footer{
+        height: 32px;
+    }
+    .footer-item>h2{
+        font-size: 12px;
+        line-height: 12px;
+        text-align: center;
+    }
+    .footer-item>a,
+    .mobile-apps p,
+    .social p,
+    .footer-logo>p>span{
+        display: none;
+    }
+    .icons>a>i{
+        font-size: 14px;
+        margin: 4px
+    }
+    .footer-logo>p{
+        display: block;
+    }
+
+}
+
+
+
+
+/* SCREEN WIDTH */
+
+@media (min-width: 661px) and (max-width:1200px) {
+
+    h1{
+        font-size: 22px;
+    }
+    h2{
+        font-size: 18px;
+        line-height: 14px;
+        margin:0;
+    }
+    h3{
+        font-size: 16px;
+        line-height: 15px !important;
+        margin: 0;
+    }
+
+
+
+
+    /* NAV */
+    .time{
+        font-size: 12px;
+    }
+    /* .search form, */
+    .alerts{
+        /* display: none; */
+    }
+    .links a{
+        font-size: 12px;
+        padding: 4px 12px;
+    }
+    .nav-body{
+        display: flex;
+        justify-content: center;
+    }
+    .gleaner-logo{
+        display: inline;
+        margin: 0;
+        justify-content: start;
+    }
+    .gleaner-logo>img{
+        object-fit: contain;
+        min-width: 200px;
+        width: 70%;
+    }
+    .btns button{
+        font-size: 12px;
+        padding: 4px 8px;
+        margin:0 4px;
+    }
+
+
+
+
+
+
+    /*  */
+    .section-heading{
+        text-align: left;
+        /* font-size: 1.2rem; */
+        margin-bottom: 20px;
+    }
+    .container{
+        box-shadow:none;
+        width: 100%;
+        margin: auto;
+    }
+
+    .trending-container{
+        height: 560px;
+    }
+    .flair-container{
+        height: 450px;
+    }
+    .opinion-container{
+        height: 200px;
+    }
+    .news-container{
+        height: 300px;
+    }
+    .business-container{
+        height: 500px;
+    }
+
+
+
+
+    /* MAIN STORIES */
+    .main-stories{
+        margin: 0;
+        justify-content: center;
+    }
+    .latest-stories{
+        display: grid;
+        grid-template-rows: repeat(2,1fr);
+        width: 70%;
+    }
+    .latest-stories>img{
+        object-fit: cover;
+        max-height: 280px;
+        max-width: 480px;
+        width: 100%;
+        height: auto;
+        margin: 0;
+        padding: 0 8px 12px 0;
+    }
+    .latest-stories>p,
+    .latest-stories>a{
+        display: none;
+    }
+    .featured-stories{
+        justify-content: start;
+    }
+    .featured-stories>a{
+        font-size: 13px;
+        line-height: 13px;
+    }
+
+
+
+    /* TRENDING */
+    .trending-stories{
+        display: grid;
+        grid-template-columns: repeat(2,1fr);
+        column-gap: 40px;
+        row-gap: 20px;
+    }
+
+    .trending-item>img{
+        object-fit: contain;
+        max-height: 180px;
+        height: auto;
+    }
+
+
+
+
+
+
+    /* NEWS */
+    .news{
+        display: flex;
+    }
+    .major>div{
+        display: flex;
+        flex-direction: column-reverse;
+    }
+    .major h3{
+        margin: 0;
+        
+    }
+    .minor{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        width: 50%;
+    }
+    /* .minor-left, */
+    .minor p,
+    .minor hr{
+        display: none;
+    }
+
+
+    .news-article{
+        margin: 0;
+    }
+    .news-article>img{
+        object-fit: contain;
+        height: auto;
+        width: 100%;
+    }
+
+
+
+
+
+
+    /* SPORTS */
+    .sport-primary>p{
+        display: none;
+    }
+    .sport-primary>img{
+        object-fit: contain;
+        max-height: 390px;
+        height: auto;
+        width: 100%;
+        padding-bottom: 12px;
+        float: none;
+    }
+    .sport-primary>h2{
+        font-size: 1.2rem;
+    }
+    .article{
+        display: flex;
+        flex-direction:column-reverse;
+    }
+    .article>img{
+        max-height: 155px;
+        height: auto;
+        width: 100%;
+        padding-bottom: 8px;
+    }
+
+
+
+
+    /* BUSINESS */
+    .main-business-story{
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 12px;
+    }
+    .main-business-story>img{
+        max-height: 200px;
+        height: auto;
+        width: 100%;
+        object-fit: contain;
+    }
+    .main-business-story>h2{
+        font-size: 1.1rem;
+        margin-top: 8px;
+        line-height: 16px;
+    }
+    .main-business-story>p{
+        display: none;
+    }
+    .lower-row{
+        display: grid;
+        grid-template-columns: repeat(3,1fr);
+        column-gap: 12px;
+    }
+    .business-article{
+        display: flex;
+        flex-direction: column;
+    }
+    .business-article>img,
+    .stock-market>img{
+        object-fit: cover;
+        max-height: 120px;
+        max-width: 160px;
+        width: 100%;
+        height: auto;
+        margin-bottom: 8px;
+        float: none;
+    }
+    .business-article>h3{
+        font-size: 14px;
+        line-height: 14px;
+    }
+
+
+
+
+
+    /* FLAIR */
+    .flair-article-left,
+    .flair-article-right{
+        display: none;
+    }
+    .flair-article>h2{
+        font-size: 1.1rem;
+        line-height: 16px;
+        margin-bottom: 12px;
+    }
+
+
+
+
+    /* WEATHER */
+    .location>h4{
+        font-size: 14px;
+    }
+
+    .location>p{
+        font-size: 11px;
+        line-height: 10px;
+        margin-top: 4px;
+    }
+
+
+
+    /* FUN AND GAMES */
+    .fng{
+       align-items: stretch;
+    }
+    .cartoon{
+        width: 100%;
+        margin-bottom: 12px;
+    }
+    .cartoon>h2{
+        font-size: 14px;
+    }
+    .cartoon>img{
+        max-height: 400px;
+        width: 100%;
+        padding: 0;
+    }
+    .fng-links{
+        justify-content: space-between;
+    }
+    .fng-links img{
+        max-height: 80px;
+        height: auto;
+    }
+
+
+
+
+    /* OPINIONS */
+
+    .poll,
+    .opinion-item>p{
+        display: none;
+    }
+    .opinions{
+        display: flex;
+        align-items: stretch;
+    }
+    .opinions>*{
+        flex-basis: 24%;
+        flex-grow: 0;
+        flex-shrink: 0;
+    }
+    .opinion-item>h3{
+        font-size: 14px;
+    }
+    .opinion-item>h4{
+        font-size: 10px;
+        line-height: 12px;
+    }
+
+
+
+    /* FOOTER */
+    footer{
+        height: 32px;
+    }
+    .footer-item>h2{
+        font-size: 12px;
+        line-height: 12px;
+        text-align: center;
     }
     .footer-item>a,
     .mobile-apps p,
