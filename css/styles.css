@@ -237,7 +237,7 @@ img{
     width: 120%;
     text-align: right;
     color: #987a22;
-    animation: scroll-left infinite 10s linear;
+    animation: scroll-left infinite 40s linear;
     font-weight: 600;
     font-size: 18px;
 }
