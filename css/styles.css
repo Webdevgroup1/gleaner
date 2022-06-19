@@ -7,6 +7,14 @@
     form{transform:translate(100%)}
     to{transform:translate(-100%)}
 }
+@keyframes slide-right {
+    0%{
+        left: -340px;
+    }
+    100%{
+        left: 0;
+    }
+}
 
 
 
@@ -38,7 +46,7 @@ h3{
 nav{
     background-color: #ffffff;
     color: #0270bb;
-    border-bottom: 6px double #0270bb;
+    border-bottom: 2px solid #0270bb;
     overflow: hidden;
     position: sticky;
     top: -50px;
@@ -59,22 +67,29 @@ img{
 
 
 
-/* REUSABLE */
+/* UTILITY CLASSES */
 .set-width{
     width: 85%;
     max-width: 1080px;
+    min-width: 320px;
     margin: 0 auto;
 }
 .section-container-lg{
-    height: 520px;
+    height: 560px;
 }
+
 .section-container-lg>a,
 .section-container-sm>a{
-    display: block;
+    display: inline-block;
+    float: right;
     text-align: right;
-    font-weight: 500;
-    margin-top: 20px;
-    text-decoration: underline;
+    font-weight: 600;
+    font-size: 14px;
+    margin-top: 40px;
+    padding: 8px 20px;
+    border-radius: 16px;
+    background-color:#987a22;
+    color:#ffffff;
     font-style: italic;
 }
 .section-container-sm{
@@ -203,7 +218,7 @@ img{
 .btns{
     display: flex;
     justify-content: center;
-    margin: 12px 0 4px 0;
+    margin: 8px 0 4px 0;
 }
 .btns button{
     padding: 4px 16px;
@@ -217,29 +232,26 @@ img{
     transition-duration: 0.2s;
 }
 .btns button:hover{
-    box-shadow: 0 0 8px #0270bb;
-    /* background-color:#0270bb;
-    color: #ffffff;
-    border: 2px solid #987a22; */
+    box-shadow: 0 0 4px #0270bb;
+    transform: scale(1.05);
 }
 .btns button:active{
     box-shadow: 0 0 0 #0270bb;
+    transform: scale(1);
 }
 .alerts{
-    display: grid;
-    left: 0;
-    width: 180%;
-    margin:8px auto;
-    padding: 4px;
+    width: 100%;
+    margin:4px auto;
+    overflow: hidden;
 }
 
 .alerts p{
-    width: 120%;
+    width: 1900px;
     text-align: right;
     color: #987a22;
     animation: scroll-left infinite 40s linear;
     font-weight: 600;
-    font-size: 18px;
+    font-size: 14px;
 }
 
 
@@ -251,16 +263,49 @@ img{
 .menu-modal{
     display: none;
     position: fixed;
-    z-index: 1;
+    z-index: 2;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
     overflow: auto;
-    background-color:#31313199;
+    background-color:#444444e1;
 }
 
-.menu-content{
-    background-color: #ffffff;
+.modal-btns{
+    position: fixed;
+    background-color:#ffffff;
+    top: 20px;
+    left: 20px;
+    width: 300px;
+    height: auto;
+    border-left: 20px solid #0270bb;
+    animation: slide-right 0.5s;
+    padding: 16px 0;
 }
+.modal-btns>button{
+    position: relative;
+    display: block;
+    padding: 20px 40px;
+    margin: 4px 0;
+    border: none;
+    /* border-bottom: 1px solid #0270bb; */
+    color: #0270bb;
+    text-align: left;
+    font-size: 24px;
+    font-weight: 600;
+    transition-duration: 0.2s;
+    cursor: pointer;
+}
+.modal-btns>button:hover{
+    background-color:#0270bb;
+    color: #ffffff;
+}
+
+
+
+
+
 
 
 
@@ -270,7 +315,7 @@ img{
     margin: 0 auto;
     padding: 20px 40px;
     background-color:#ffffff;
-    /* box-shadow: 0 0 8px #313131bb; */
+    box-shadow: 0 0 16px #3131317b;
 }
 
 
@@ -283,9 +328,12 @@ img{
 }
 .latest-stories{
     width: 65%;
-    /* padding: 0 12px; */
+    cursor: pointer;
 }
-
+.latest-stories:hover.latest-stories>h2{
+    text-decoration: underline;
+    color:#0270bb;
+}
 .latest-stories img{
     object-fit: contain;
     float: right;
@@ -297,12 +345,6 @@ img{
     line-height: 19px;
     font-style: italic;
 }
-
-.latest-stories h2:hover{
-    text-decoration: underline;
-    cursor: pointer;
-    color:#0270bb;
-}
 .latest-stories p{
     line-height: 1.2rem;
     margin-bottom: 24px;
@@ -310,13 +352,18 @@ img{
 .latest-stories a{
     text-align: center;
     display: block;
+    margin-top: 20px;
+}
+.latest-stories a:hover{
+    text-decoration: underline;
+    color:#0270bb;
 }
 .featured-stories{
     width: 30%;
 }
 .featured-stories a{
     font-style: italic;
-    font-weight: 500;
+    font-weight: 600;
     font-size: 1.1rem;
     line-height: 18px;
     text-align: left;
@@ -351,7 +398,7 @@ img{
 }
 .trending-item h3{
     font-style: italic;
-    font-weight: 500;
+    font-weight: 600;
     line-height: 1.2rem;
     color:#313131
 }
@@ -375,7 +422,7 @@ img{
     margin-bottom: 12px;
     color:#313131;
     font-style: italic;
-    font-weight: 500;
+    font-weight: 600;
 }
 .news-article>img{
     width: 360px;
@@ -411,7 +458,7 @@ img{
 }
 .sport-primary>h2{
     margin-bottom: 20px;
-    font-weight: 500;
+    font-weight: 600;
     font-style: italic;
 }
 .sport-secondary{
@@ -424,7 +471,7 @@ img{
     text-align: left;
     line-height: 14px;
     margin-bottom: 8px;
-    font-weight: 500;
+    font-weight: 600;
     font-style: italic;
 }
 .article>img{
@@ -457,6 +504,8 @@ img{
 }
 .main-business-story>h2{
     margin-bottom: 20px;
+    font-style: italic;
+    font-weight: 600;
 }
 .stock-market{
     align-self: flex-start;
@@ -473,7 +522,11 @@ img{
     float: left;
     padding-right: 12px;
 }
-
+.business-article>h3,
+.stock-market>h2{
+    font-style: italic;
+    font-weight: 600;
+}
 
 
 
@@ -505,10 +558,14 @@ img{
 }
 .flair-article>h3{
     margin-bottom: 4px;
+    font-style: italic;
+    font-weight: 600;
 }
 .flair-article>h2{
     padding: 0 20px;
     margin-bottom: 20px;
+    font-style: italic;
+    font-weight: 600;
 }
 
 
@@ -530,6 +587,7 @@ img{
 .location>h4{
     margin-bottom: 8px;
     font-size: 20px;
+    font-weight: 600;
 }
 .location>i{
     font-size: 22px;
@@ -540,7 +598,7 @@ img{
 .location>p{
     text-align: center;
     font-weight: 600;
-    color:#0270bb;
+    color:#313131;
 }
 
 
@@ -556,6 +614,8 @@ img{
 }
 .cartoon>h2{
     margin-bottom: 12px;
+    font-weight: 600;
+    font-style: italic;
 }
 .cartoon>img{
     object-fit: contain;
@@ -571,6 +631,8 @@ img{
 }
 .fng-links h4{
     margin-bottom: 4px;
+    font-style: italic;
+    font-weight: 600;
 }
 .fng-links img{
     object-fit: cover;
@@ -602,15 +664,12 @@ img{
 }
 .opinion-item{
     cursor: pointer;
-    box-shadow:1px 1px 2px #3131319a;
     padding: 2px 6px;
 }
 .opinion-item h3,
 .poll h3{
     text-align: center;
-}
-.opinion-item:hover{
-    box-shadow:1px 1px 2px #0270bb9a;
+    font-weight: 600;
 }
 .opinion-item:hover.opinion-item>h4{
     color:#0270bb;
@@ -624,6 +683,10 @@ img{
 .opinion-item>h3,
 .poll>p{
     margin-bottom: 12px;
+}
+.opinion-item>h4{
+    font-weight: 600;
+    font-style: italic;
 }
 .radio{
     margin-bottom: 4px;
@@ -766,8 +829,7 @@ img{
     }
     .search form,
     .subscribe,
-    .btns,
-    .alerts{
+    .btns{
         display: none;
     }
     .links a{
@@ -791,34 +853,58 @@ img{
         min-width: 200px;
         width: 70%;
     }
+    .alerts p{
+        width: 1160px;
+        font-size: 12px;
+    }
 
 
 
 
 
 
-    /*  */
+    /* UTILITY */
+    .set-width{
+        width: 95%;
+        margin: auto;
+    }
     .section-heading{
         text-align: left;
-        /* font-size: 1.2rem; */
         margin-bottom: 16px;
     }
     .container{
-        box-shadow:none;
-        width: 100%;
-        margin: auto;
+        box-shadow:0 0 4px #313131;
     }
     .section-container-sm{
         height: 320px;
     }
     .trending-container{
-        height: 480px;
+        height: 490px;
+        overflow: hidden;
+    }
+    .news-container{
+        height: 490px;
+        overflow: hidden;
+    }
+    .sports-container{
+        height: 500px;
+        overflow: hidden;
+    }
+    .business-container{
+        height: 600px;
+        overflow: hidden;
     }
     .flair-container{
-        height: 450px;
+        height: 440px;
+        overflow: hidden;
+    }
+    .fng-container{
+        height:500px;
+        overflow: hidden;
     }
     .opinion-container{
-        height: 200px;
+        height: 260px;
+        overflow: hidden;
     }
 
 
@@ -853,7 +939,6 @@ img{
         column-gap: 40px;
         row-gap: 20px;
     }
-
     .trending-item>img{
         object-fit: cover;
         height: 100px;
@@ -1111,26 +1196,52 @@ img{
 
 
 
-    /*  */
-    .section-heading{
-        text-align: left;
-        /* font-size: 1.2rem; */
-        margin-bottom: 20px;
-    }
-    .container{
-        box-shadow:none;
-        width: 100%;
+    /* UTILITY */
+    .set-width{
+        width: 95%;
         margin: auto;
     }
-
+    .section-heading{
+        text-align: left;
+        margin-bottom: 16px;
+    }
+    .container{
+        box-shadow:0 0 4px #313131;
+    }
+    .section-container-sm{
+        height: 380px;
+        overflow: hidden;
+    }
     .trending-container{
-        height: 560px;
+        height: 540px;
+        overflow: hidden;
+    }
+    .news-container{
+        height: 540px;
+        overflow: hidden;
+    }
+    .sports-container{
+        height: 500px;
+        overflow: hidden;
+    }
+    .business-container{
+        height: 530px;
+        overflow: hidden;
+    }
+    .weather-container{
+        height: 320px;
     }
     .flair-container{
-        height: 450px;
+        height: 440px;
+        overflow: hidden;
+    }
+    .fng-container{
+        height:500px;
+        overflow: hidden;
     }
     .opinion-container{
-        height: 200px;
+        height: 260px;
+        overflow: hidden;
     }
 
 
@@ -1214,7 +1325,7 @@ img{
     }
 
     .news-article{
-        margin: 0;
+        margin: 0 auto;
         flex-basis: 200px;
         flex-grow: 0;
         flex-shrink: 0;
@@ -1425,10 +1536,6 @@ img{
     .time{
         font-size: 12px;
     }
-    /* .search form, */
-    .alerts{
-        /* display: none; */
-    }
     .links a{
         font-size: 12px;
         padding: 4px 12px;
@@ -1458,32 +1565,52 @@ img{
 
 
 
-    /*  */
-    .section-heading{
-        text-align: left;
-        /* font-size: 1.2rem; */
-        margin-bottom: 20px;
-    }
-    .container{
-        box-shadow:none;
-        width: 100%;
+    /* UTILITY */
+    .set-width{
+        width: 95%;
         margin: auto;
     }
-
+    .section-heading{
+        text-align: left;
+        margin-bottom: 16px;
+    }
+    .container{
+        box-shadow:0 0 4px #313131;
+    }
+    .section-container-sm{
+        height: 380px;
+        overflow: hidden;
+    }
     .trending-container{
-        height: 560px;
-    }
-    .flair-container{
-        height: 450px;
-    }
-    .opinion-container{
-        height: 200px;
+        height: 540px;
+        overflow: hidden;
     }
     .news-container{
-        height: 300px;
+        height: 380px;
+        overflow: hidden;
+    }
+    .sports-container{
+        height: 580px;
+        overflow: hidden;
     }
     .business-container{
-        height: 500px;
+        height: 560px;
+        overflow: hidden;
+    }
+    .weather-container{
+        height: 320px;
+    }
+    .flair-container{
+        height: 440px;
+        overflow: hidden;
+    }
+    .fng-container{
+        height:500px;
+        overflow: hidden;
+    }
+    .opinion-container{
+        height: 220px;
+        overflow: hidden;
     }
 
 
@@ -1551,7 +1678,6 @@ img{
     }
     .major h3{
         margin: 0;
-        
     }
     .minor{
         display: flex;
@@ -1686,7 +1812,7 @@ img{
 
     /* FUN AND GAMES */
     .fng{
-       align-items: stretch;
+        align-items: stretch;
     }
     .cartoon{
         width: 100%;
